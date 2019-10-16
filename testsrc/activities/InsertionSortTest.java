@@ -1,74 +1,17 @@
 package activities;
 
-import org.junit.jupiter.api.Test;
+import static activities.Sorts.insertionSort;
 
-import static activities.Sorts.*;
-import static org.junit.jupiter.api.Assertions.assertArrayEquals;
-
-public class InsertionSortTest {
-    @Test
-    void insertionSortEmpty() {
-        int[] array = {};
-        int[] expected = {};
-
-
+/**
+ * Inherits the test methods from the parent class. Implements the sort
+ * method to call insertion sort.
+ */
+public class InsertionSortTest extends AbstractSortTest {
+    @Override
+    public int[] sort(int[] array) {
+        // insertion sort is an in-place sort, so...
         insertionSort(array);
-
-        assertArrayEquals(expected, array);
-    }
-
-    @Test
-    void insertionSortOne() {
-        int[] array = { 7 };
-        int[] expected = { 7 };
-
-
-        insertionSort(array);
-
-        assertArrayEquals(expected, array);
-    }
-
-    @Test
-    void insertionSortSorted() {
-        int[] array = { 2, 3, 5, 7, 11 };
-        int[] expected = { 2, 3, 5, 7, 11 };
-
-
-        insertionSort(array);
-
-        assertArrayEquals(expected, array);
-    }
-
-    @Test
-    void insertionSortUnsorted() {
-        int[] array = { 11, 2, 5, 3, 7 };
-        int[] expected = { 2, 3, 5, 7, 11 };
-
-
-        insertionSort(array);
-
-        assertArrayEquals(expected, array);
-    }
-
-    @Test
-    void insertionSortSame() {
-        int[] array = { 2, 2, 2, 2, 2 };
-        int[] expected = { 2, 2, 2, 2, 2 };
-
-
-        insertionSort(array);
-
-        assertArrayEquals(expected, array);
-    }
-
-    @Test
-    void insertionSortInverse() {
-        int[] array = { 11, 7, 5, 3, 2 };
-        int[] expected = { 2, 3, 5, 7, 11 };
-
-
-        insertionSort(array);
-
-        assertArrayEquals(expected, array);
+        // just return the array after it is sorted
+        return array;
     }
 }
